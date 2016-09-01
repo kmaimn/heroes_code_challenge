@@ -1,0 +1,21 @@
+<h1>HOME PAGE</h1>
+<form id="addHero">
+
+  <label for="alias">Alias:</label>
+  <input type="text" id="alias" name="alias" ng-model="newHero.alias" />
+
+  <label for="first">First Name:</label>
+  <input type="text" id="first" name="fisrt" ng-model="newHero.first_name" />
+
+  <label for="last">Last Name:</label>
+  <input type="text" id="last" name="last" ng-model="newHero.last_name" />
+
+  <label for="city">City:</label>
+  <input type="text" id="city" name="city" ng-model="newHero.city" />
+
+  <select class="drop-down" ng-model="pickPower">
+  <option class="drop-down" ng-repeat="x in superPowers" value="{{x}}">{{x}}</option>
+  </select>
+  
+  <button ng-click="submitHero()" class="hero">Add Hero</button>
+</form>
