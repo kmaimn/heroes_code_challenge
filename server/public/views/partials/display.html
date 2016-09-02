@@ -1,8 +1,9 @@
 <h1>DISPLAY PAGE</h1>
 <div id="heroList" ng-repeat="hero in heroes">
-  <li>
-    <p>Alias: {{heroes.alias}}</p>
-    <p>Name: {{heroes.first_name}}+ '' +{{heroes.last_name}}</p>
-    <p>Location: {{heroes.city}}</p>
-    <p>Super Power: {{heroes.power_name}}</p>
-  </li>
+  <div>
+    <button type="button" name="delete" ng-click="deleteHero(hero._id)">Delete</button>
+    <p>Alias: {{hero.alias}}</p>
+    <p>Name: {{hero.first_name}}  {{hero.last_name}}</p>
+    <p>Location: {{hero.city}}</p>
+    <p>Super Power: {{hero.power_name}}</p>
+  </div>

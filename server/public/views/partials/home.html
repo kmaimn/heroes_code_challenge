@@ -13,9 +13,18 @@
   <label for="city">City:</label>
   <input type="text" id="city" name="city" ng-model="newHero.city" />
 
-  <select class="drop-down" ng-model="pickPower">
+  <select class="drop-down" ng-model="newHero.power_name">
   <option class="drop-down" ng-repeat="x in superPowers" value="{{x}}">{{x}}</option>
   </select>
-  
+
   <button ng-click="submitHero()" class="hero">Add Hero</button>
 </form>
+
+<div id="heroList" ng-repeat="hero in heroes">
+  <li>
+    <button type="button" name="delete" ng-click="deleteHero()">Delete</button>
+    <p>Alias: {{hero.alias}}</p>
+    <p>Name: {{hero.first_name}}+ '' +{{hero.last_name}}</p>
+    <p>Location: {{hero.city}}</p>
+    <p>Super Power: {{hero.power_name}}</p>
+  </li>

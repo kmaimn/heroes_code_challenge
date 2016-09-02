@@ -12,7 +12,9 @@ app.use(bodyParser.json());
 
 app.use(express.static(path.join(__dirname, './public')));
 
-
+app.get('/', function(req,res){
+  res.sendFile(path.join(__dirname, './public/views/index.html'));
+})
 //bring in my route;
 app.use('/heroes', heroes);
 

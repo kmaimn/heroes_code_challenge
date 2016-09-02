@@ -3,9 +3,9 @@ var router = express.Router();
 var Hero = require('../models/hero');
 
 //GET heroes from the DB;
-router.get('/', function(req, res){
-  Hero.find({}, function(err, heroes){
-    if (err){
+router.get('/', function (req, res) {
+  Hero.find({}, function (err, heroes) {
+    if (err) {
       res.sendStatus(500);
       return;
     }
@@ -15,12 +15,12 @@ router.get('/', function(req, res){
 });
 
 //POST hero to DB;
-router.post('/', function (req, res){
+router.post('/', function (req, res) {
   console.log('POST', req.body);
   var hero = Hero(req.body);
 
-  hero.save(function(err){
-    if(err){
+  hero.save(function (err) {
+    if (err) {
       res.sendStatus(500);
       return;
     }
@@ -30,11 +30,11 @@ router.post('/', function (req, res){
 });
 
 //DELETE hero from DB;
-router.delete('/:id', function (req, res){
+router.delete('/:id', function (req, res) {
   var id = req.params.id;
 
-  Hero.findByIdAndRemove(id, function (err){
-    if(err){
+  Hero.findByIdAndRemove(id, function (err) {
+    if (err) {
       res.sendStatus(500);
       return;
     }

@@ -1,6 +1,7 @@
 app.controller('homeController', ['$scope', '$http', function($scope, $http){
   console.log('homeController is ON!');
   //create an empty array to send hero to DB;
+
   $scope.newHero = {};
 
   $scope.superPowers = ['Invisibility', 'Flight', 'Super Speed', 'Heat Vision', 'Super Strength', 'Accelerated Healing', 'Power Blast', 'Animal Affinity'];
@@ -14,10 +15,13 @@ app.controller('homeController', ['$scope', '$http', function($scope, $http){
       console.log('new hero POST to /heroes: ', data);
     })
   }
+
 }]);
 
 app.controller('displayController', ['$scope', '$http', function($scope, $http){
   console.log('displayController is ON!');
+
+  getHeroes();
 
   $scope.deleteHero = function(id){
     $http.delete('/heroes/' + id)
@@ -28,14 +32,15 @@ app.controller('displayController', ['$scope', '$http', function($scope, $http){
   };
 
 
-  function getHeroes(){
+  function getHeroes() {
     $http.get('/heroes')
-    .then(function(response){
+    .then(function (response) {
       console.log('this is what I am GETing from /heroes:', response.data);
 
       var heroesArray = response.data;
 
       $scope.heroes = heroesArray;
+      console.log(heroesArray);
     });
   }
 
