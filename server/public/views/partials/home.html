@@ -1,4 +1,4 @@
-<h1>HOME PAGE</h1>
+<h1>Hero Entry</h1>
 <form id="addHero">
 
   <label for="alias">Alias:</label>
@@ -19,12 +19,3 @@
 
   <button ng-click="submitHero()" class="hero">Add Hero</button>
 </form>
-
-<div id="heroList" ng-repeat="hero in heroes">
-  <li>
-    <button type="button" name="delete" ng-click="deleteHero()">Delete</button>
-    <p>Alias: {{hero.alias}}</p>
-    <p>Name: {{hero.first_name}}+ '' +{{hero.last_name}}</p>
-    <p>Location: {{hero.city}}</p>
-    <p>Super Power: {{hero.power_name}}</p>
-  </li>

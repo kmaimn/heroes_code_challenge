@@ -1,11 +1,14 @@
+//controller for home page;
 app.controller('homeController', ['$scope', '$http', function($scope, $http){
   console.log('homeController is ON!');
-  //create an empty array to send hero to DB;
 
+  //create an empty array to send hero to DB;
   $scope.newHero = {};
 
+  //array of superPowers that will populate the dropdown;
   $scope.superPowers = ['Invisibility', 'Flight', 'Super Speed', 'Heat Vision', 'Super Strength', 'Accelerated Healing', 'Power Blast', 'Animal Affinity'];
 
+  //function will post on button submit;
   $scope.submitHero = function(){
     var data = $scope.newHero;
 
@@ -18,11 +21,14 @@ app.controller('homeController', ['$scope', '$http', function($scope, $http){
 
 }]);
 
+//controller for heroes display;
 app.controller('displayController', ['$scope', '$http', function($scope, $http){
   console.log('displayController is ON!');
 
+  //get request when page loads;
   getHeroes();
 
+  //delete function/request on button click
   $scope.deleteHero = function(id){
     $http.delete('/heroes/' + id)
     .then(function(){
@@ -31,7 +37,7 @@ app.controller('displayController', ['$scope', '$http', function($scope, $http){
     });
   };
 
-
+  //GET request;
   function getHeroes() {
     $http.get('/heroes')
     .then(function (response) {
